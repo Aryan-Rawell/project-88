@@ -48,8 +48,8 @@ function new_image()
 
 window.addEventListener("keydown", my_keydown);
 
-function my_keydown(e)
-{
+function my_keydown(e){
+
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
 	/* Check the coordinates of the ball and hole images to finish the game. 
@@ -62,6 +62,7 @@ function my_keydown(e)
 	document.getElementById("hd3").innerHTML="You have hit the Goal!!!";
 	document.getElementById("myCanvas").style.borderColor="red";
 	}
+
 else{
 
 		if(keyPressed == '38')
@@ -85,7 +86,7 @@ else{
 			console.log("right");
 		}
 	}
-	
+}
 	function down()
 	{
 		if(ball_y<=450){
