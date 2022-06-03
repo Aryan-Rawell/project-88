@@ -14,11 +14,11 @@ block_image_height = 5;
 function load_img(){
 	
 	
-fabric.Image.fromUrl("golf-h.png" , function(Img){
+fabric.Image.fromURL('golf-h.png' , function(Img){
 	hole_obj=Img;
-	hole_obj=scaleToWidth(50);
-	hole_obj=scaleToHeight(50);
-	hole_obj=set({
+	hole_obj.scaleToWidth(50);
+	hole_obj.scaleToHeight(50);
+	hole_obj.set({
 		top:hole_y,
 		left:hole_x
 	});
@@ -32,11 +32,11 @@ new_image();
 
 function new_image()
 {
-	fabric.Image.fromUrl("ball.png" , function(Img){
+	fabric.Image.fromURL('ball.png' , function(Img){
 		ball_obj=Img;
-		ball_obj=scaleToWidth(50);
-		ball_obj=scaleToHeight(50);
-		ball_obj=set({
+		ball_obj.scaleToWidth(50);
+		ball_obj.scaleToHeight(50);
+		ball_obj.set({
 			top:ball_y,
 			left:ball_x
 		});
@@ -56,7 +56,7 @@ function my_keydown(e){
 	And id coordinates matches them remove ball image, 
 	display "GAME OVER!!!" 
 	and make canvas border 'red'. */
-	if((ball_x==hole_x)&&(ball_y=hole_y)){
+	if((ball_x==hole_x)&&(ball_y==hole_y)){
 		canvas.remove(ball_obj);
 	
 	document.getElementById("hd3").innerHTML="You have hit the Goal!!!";
@@ -101,7 +101,7 @@ else{
 
 	function up(){
 	if(ball_y>=130){
-		ball_y=ball_y+block_image_height;
+		ball_y=ball_y-block_image_height;
 			console.log("block image height= "+ block_image_height);
 			console.log("When up key is pressed, X= "+ ball_x ,"Y= "+ball_y);
 			canvas.remove(ball_obj);
@@ -115,7 +115,7 @@ else{
 	{
 		if(ball_x >5)
 		{
-		ball_x=ball_x+block_image_width;
+		ball_x=ball_x-block_image_width;
 		console.log("block image width"+block_image_width);
 		 console.log("When left key is pressed,X= "+ball_x , "Y= "+ball_y);
 		 canvas.remove(ball_obj);
@@ -129,7 +129,7 @@ else{
 	{
 		if(ball_x <=1050)
 		{
-			// Write a code to move ball right side.
+			ball_x = ball_x + block_image_width; console.log("block image width = " + block_image_width); console.log("When Right arrow key is pressed, X = " + ball_x + " , Y = "+ball_y); canvas.remove(ball_obj); new_image();
 		}
 	}
 
